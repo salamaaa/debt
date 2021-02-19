@@ -16,4 +16,7 @@ class Customer extends Model
     public function getTotalAttribute(){
         return $this->on_him - $this->for_him;
     }
+    public function getAvatarAttribute($img){
+        return asset($img ?: '/img/2.jpg');
+    }
 }

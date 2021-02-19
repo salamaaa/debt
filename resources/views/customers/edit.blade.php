@@ -5,7 +5,8 @@
             <form
                 action="{{route('customers.update',$customer->id)}}"
                 method="POST"
-                class="flex flex-col w-full p-8 mx-auto mt-10 border-2 rounded-lg lg:w-2/6 md:w-1/2 md:ml-auto md:mt-0">
+                class="flex flex-col w-full p-8 mx-auto mt-10 border-2 rounded-lg lg:w-2/6 md:w-1/2 md:ml-auto md:mt-0"
+                enctype="multipart/form-data">
 
                 @csrf
                 @method('PUT')
@@ -26,6 +27,13 @@
                            class="bg-white w-full px-4 py-2 mb-4 mr-4 text-base text-blue-700 bg-gray-100 border rounded-lg focus:ring-0"
                            value="{{$customer->on_him}}">
                     <span class="text-red-700">@error('on_him') {{$message}} @enderror</span>
+                </div>
+                <div class="relative ">
+                    <label for="avatar">Avatar</label>
+                    <input id="avatar" type="file" name="avatar"
+                           class="bg-white w-full px-4 py-2 mb-4 mr-4 bg-gray-100 border rounded-lg">
+
+                    <span class="text-red-700">@error('avatar') {{$message}} @enderror</span>
                 </div>
 
                 <div class="flex justify-center">
